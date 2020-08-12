@@ -225,5 +225,44 @@ public class RedisUtils {
         }
         return result;
     }
+
+    /**
+     * 从List里面取第一个数据
+     * @param key
+     * @return
+     */
+    public static String getFirstValueFromList(String key){
+        String result = "";
+        try{
+            if(jedis.exists(key)){
+                result = jedis.lpop(key);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            jedis.close();
+        }
+        return result;
+    }
+
+    /**
+     * 从List里面取最后一个数据
+     * @param key
+     * @return
+     */
+    public static String getLastValueFromList(String key) {
+        String result = "";
+        try{
+            if(jedis.exists(key)){
+                result = jedis.rpop(key);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            jedis.close();
+        }
+        return result;
+    }
+
 }
 
