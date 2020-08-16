@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 public class RedisUtils {
@@ -257,6 +258,28 @@ public class RedisUtils {
                 result = jedis.rpop(key);
             }
         }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            jedis.close();
+        }
+        return result;
+    }
+
+    /**
+     * 设置Hash类型的缓存到redis
+     * @param key
+     * @param valueMap
+     * @param cacheSeconds
+     * @return
+     */
+    public static String setHash(String key, Map<String, String> valueMap, int cacheSeconds){
+        String result = "";
+        try {
+            result = jedis.hmset(key, valueMap);
+            if(0 != cacheSeconds){
+                jedis.expire(key, cacheSeconds);
+            }
+        }catch (Exception e) {
             e.printStackTrace();
         }finally {
             jedis.close();
