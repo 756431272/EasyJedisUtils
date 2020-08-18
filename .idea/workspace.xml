@@ -36,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/RedisUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="287" column="38" selection-start-line="287" selection-start-column="38" selection-end-line="287" selection-end-column="38" />
+            <state relative-caret-position="234">
+              <caret line="291" column="14" lean-forward="true" selection-end-line="349" />
               <folding>
                 <element signature="e#7039#7055#0" expanded="true" />
               </folding>
@@ -167,16 +167,15 @@
       <workItem from="1597161539774" duration="1248000" />
       <workItem from="1597247593068" duration="2094000" />
       <workItem from="1597585441073" duration="3175000" />
-      <workItem from="1597763759322" duration="932000" />
+      <workItem from="1597763759322" duration="1298000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14257000" />
+    <option name="totallyTimeSpent" value="14623000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49156117" visible="true" weight="0.269437" />
       <window_info id="Structure" order="1" sideWeight="0.5084388" side_tool="true" visible="true" weight="0.269437" />
@@ -276,8 +275,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/RedisUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="287" column="38" selection-start-line="287" selection-start-column="38" selection-end-line="287" selection-end-column="38" />
+        <state relative-caret-position="234">
+          <caret line="291" column="14" lean-forward="true" selection-end-line="349" />
           <folding>
             <element signature="e#7039#7055#0" expanded="true" />
           </folding>
