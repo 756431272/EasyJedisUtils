@@ -4,10 +4,7 @@ import redis.clients.jedis.JedisPoolConfig;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 public class RedisUtils {
     private static Jedis jedis;
@@ -287,5 +284,66 @@ public class RedisUtils {
         return result;
     }
 
+    /**
+     * 对Hash类型中的某个key（field）的value进行更改
+     * @param key
+     * @param field
+     * @param value
+     * @return
+     */
+    public static Long changeHash(String key, String field, String value){
+        Long result = 0l;
+        try{
+            if(jedis.exists(key) && jedis.hexists(key, field)){
+                result = jedis.hset(key, field, value);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            jedis.close();
+        }
+        return result;
+    }
+
+    /**
+     * 获取Hash类型的数据
+     * @param key
+     * @return
+     */
+    public static Map<String , String> getHashAll(String key){
+        Map<String, String> result = new HashMap<String, String>();
+        try {
+            if(jedis.exists(key)){
+                result = jedis.hgetAll(key);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            jedis.close();
+        }
+        return result;
+    }
+
+    /**
+     * 通过Hash类型的key值和他hash里面的key（这里用field）获取某个value
+     * @param key
+     * @param field
+     * @return
+     */
+    public static String getHashOne(String key, String field){
+        String result = "";
+        try {
+            if(jedis.exists(key) && jedis.hexists(key, field)){
+                result = jedis.hget(key, field);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            jedis.close();
+        }
+        return  result;
+    }
+
+    public static String get
 }
 
